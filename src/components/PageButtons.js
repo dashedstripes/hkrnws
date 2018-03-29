@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class PageButtons extends Component {
   render() {
@@ -6,15 +7,15 @@ class PageButtons extends Component {
     if (this.props.page === 1) {
       return (
         <div>
-          <button onClick={this.props.handleNext} class='m-r-1 button tertiary'>NEXT</button>
+          <Link to={`/?p=${this.props.page + 1}`} onClick={this.handleNext} class='m-r-1 button tertiary'>NEXT</Link>
         </div>
       )
     }
 
     return (
       <div>
-        <button onClick={this.props.handlePrevious} class='m-r-1 button tertiary'>PREVIOUS</button>
-        <button onClick={this.props.handleNext} class='m-r-1 button tertiary'>NEXT</button>
+        <Link to={`/?p=${this.props.page - 1}`} onClick={this.handlePrevious} class='m-r-1 button tertiary'>PREVIOUS</Link>
+        <Link to={`/?p=${this.props.page + 1}`} onClick={this.handleNext} class='m-r-1 button tertiary'>NEXT</Link>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import queryString from 'query-string'
 
 import { fetchInitialStories, updateStories } from '../actions/storiesActions'
 import PageButtons from './PageButtons'
@@ -18,8 +19,17 @@ class Feed extends Component {
     this.props.dispatch(fetchInitialStories(this.state.page))
   }
 
-  changePage(direction) {
+  componentWillReceiveProps(nextProps) {
+    const parsed = queryString.parse(this.props.location.search)
 
+    if (Object.getOwnPropertyNames(parsed).length != 0) {
+      this.setState({
+        page: parseInt(parsed.p)
+      })
+    }
+  }
+
+  changePage(direction) {
     if (direction === 'NEXT') {
       this.setState({
         page: this.state.page + 1
@@ -66,6 +76,7 @@ class Feed extends Component {
 
     return (
       <div class='row p-tb-2'>
+        {this.state.page}
         <div class='col-12'>
           <ul class='m-0 p-0 list-unstyled'>
             {storyli}

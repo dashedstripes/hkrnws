@@ -20,6 +20,7 @@ export function fetchInitialStories(page) {
 }
 
 export function updateStories(topStories, page) {
+  console.log('test')
   let index = page + ARTICLES_PER_PAGE
   return {
     type: 'FETCH_UPDATED_STORIES',
