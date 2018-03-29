@@ -46,7 +46,7 @@ class Feed extends Component {
 
     if (this.props.pending) {
       return (
-        <div class='row'>
+        <div class='row p-tb-2'>
           <div class='col-12 t-c'>
             <h3>Loading Articles...</h3>
           </div>
@@ -56,7 +56,7 @@ class Feed extends Component {
 
     if (this.props.rejected) {
       return (
-        <div class='row'>
+        <div class='row p-tb-2'>
           <div class='col-12 t-c'>
             <p class='c-red t-b'>An error occured, please try again by refreshing the page.</p>
           </div>
@@ -65,7 +65,7 @@ class Feed extends Component {
     }
 
     return (
-      <div class='row'>
+      <div class='row p-tb-2'>
         <div class='col-12'>
           <ul class='m-0 p-0 list-unstyled'>
             {storyli}
