@@ -1,3 +1,3 @@
-# Redact
+# HKRNWS
 
-A Redux and React application.
+Hacker News React Client... everyone else has done it, why not eh?
